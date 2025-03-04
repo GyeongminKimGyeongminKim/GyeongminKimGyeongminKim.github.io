@@ -3,7 +3,7 @@ import React from 'react';
 
 const classes = {
   wrapper: 'mb-6',
-  name: 'font-semibold text-gray-900 pb-1',
+  name: 'font-semibold text-gray-900 pb-1 text-2xl font-semibold',
   description: 'text-md text-gray-600 font-light',
 };
 
@@ -24,7 +24,10 @@ const SummaryItem = ({ name, description, link = false, internal = false }) => {
       >
         {link ? linkContent : name}
       </h3>
-      <p className={classes.description}>{description}</p>
+      {description.split("\n").map((line, index) => (
+        <p style={{fontWeight: '400'}} key={index} className={classes.description}>{line}</p>
+      ))}
+
     </div>
   );
 };
